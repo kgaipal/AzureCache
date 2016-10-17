@@ -1,48 +1,48 @@
 <?xml version="1.0"?>
 <ServiceDefinition name="AzureCache" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
-    <WebRole name="AzureCache.WebRole" vmsize="Small">
-        <Sites>
-            <Site name="Web">
-                <Bindings>
-                    <Binding name="Endpoint1" endpointName="Endpoint1" />
-                </Bindings>
-            </Site>
-        </Sites>
-        <Endpoints>
-            <InputEndpoint name="Endpoint1" protocol="http" port="80" />
-        </Endpoints>
-        <Imports>
-        </Imports>
-        <Startup priority="-2">
-            <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
-            <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
-        </Startup>
-        <ConfigurationSettings>
-            <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" />
-            <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
-        </ConfigurationSettings>
-    </WebRole>
-    <WorkerRole name="AzureCache.WorkerRole" vmsize="Small">
-        <Imports>
-        </Imports>
-        <Startup priority="-2">
-            <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
-            <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
-        </Startup>
-        <ConfigurationSettings>
-            <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" />
-            <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
-        </ConfigurationSettings>
-    </WorkerRole>
-    <WorkerRole name="AzureCache.CacheWorkerRole" vmsize="Small">
-        <Imports>
-            <Import moduleName="Caching" />
-        </Imports>
-        <LocalResources>
-            <LocalStorage name="DiagnosticStore" sizeInMB="20000" cleanOnRoleRecycle="false" />
-        </LocalResources>
-        <ConfigurationSettings>
-            <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
-        </ConfigurationSettings>
-    </WorkerRole>
+  <WebRole name="AzureCache.WebRole" vmsize="Small">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="81" />
+    </Endpoints>
+    <Imports>
+    </Imports>
+    <Startup priority="-2">
+      <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
+      <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
+    </Startup>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+    </ConfigurationSettings>
+  </WebRole>
+  <WorkerRole name="AzureCache.WorkerRole" vmsize="Small">
+    <Imports>
+    </Imports>
+    <Startup priority="-2">
+      <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
+      <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
+    </Startup>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+    </ConfigurationSettings>
+  </WorkerRole>
+  <WorkerRole name="AzureCache.CacheWorkerRole" vmsize="Small">
+    <Imports>
+      <Import moduleName="Caching" />
+    </Imports>
+    <LocalResources>
+      <LocalStorage name="DiagnosticStore" sizeInMB="20000" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+    </ConfigurationSettings>
+  </WorkerRole>
 </ServiceDefinition>
