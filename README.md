@@ -11,3 +11,6 @@ Licensed for usage under the [GNU Lesser General Public License, version 3.0 (LG
 
 Enjoy.
 
+Notes (kgaipal):
+- Run Visual Studio as Elevated
+- In Visual Studio 2012, make sure that AzureCloud is the starting project
